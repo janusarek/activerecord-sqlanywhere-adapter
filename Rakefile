@@ -30,7 +30,7 @@ require 'rubygems/builder'
 PACKAGE_NAME = "activerecord-sqlanywhere-adapter"
 ARCH=Config::CONFIG['arch']
 
-pkg_version = "1.0.0"
+pkg_version = "1.0.1"
 
 spec = Gem::Specification.new do |spec|
   spec.authors = ["Eric Farrar"]

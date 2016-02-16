@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.description = <<-EOF
   ActiveRecord driver for SQL Anywhere
   EOF
-  spec.version = "1.0.0"
+  spec.version = "1.0.1"
   spec.has_rdoc = true
   spec.rubyforge_project = 'sqlanywhere'
   spec.homepage = 'http://sqlanywhere.rubyforge.org'
