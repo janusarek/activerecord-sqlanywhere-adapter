@@ -56,8 +56,17 @@ module ActiveRecord
       config = DEFAULT_CONFIG.merge(config)
 
       raise ArgumentError, "No database name was given. Please add a :database option." unless config.has_key?(:database)
-
-      connection_string = "ServerName=#{(config[:server] || config[:database])};DatabaseName=#{config[:database]};UserID=#{config[:username]};Password=#{config[:password]};"
+      
+      if config[:host]
+        if config[:port]
+          connection_string = "Host=#{config[:host]}:#{config[:port]};"
+        else
+          connection_string = "Host=#{config[:host]};"
+        end
+      else
+        connection_string = "ServerName=#{(config[:server] || config[:database])};"
+      end
+      connection_string += "DatabaseName=#{config[:database]};UserID=#{config[:username]};Password=#{config[:password]};"
       connection_string += "CommLinks=#{config[:commlinks]};" unless config[:commlinks].nil?
       connection_string += "ConnectionName=#{config[:connection_name]};" unless config[:connection_name].nil?
       connection_string += "CharSet=#{config[:encoding]};" unless config[:encoding].nil?      
